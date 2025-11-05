@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Academia Dogus Dev: cursos gratis de programación y tecnología con contenido moderno y navegación interna.">
+    <meta name="description" content="Academia PRODUCTOUNO: cursos gratis de programación y tecnología con contenido moderno y navegación interna.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia PRODUCTOUNO</title>
     <link rel="stylesheet" href="../CSS/style.css">
@@ -12,7 +12,7 @@
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <img src="../img/logo.png" alt="Logo" class="logo">
-            <h2>Dogus Dev</h2>
+            <h2>PRODUCTOUNO</h2>
         </div>
         <nav class="sidebar-nav">
             <ul>
@@ -24,7 +24,7 @@
             </ul>
         </nav>
         <div class="sidebar-footer">
-            <small>&copy; 2025 Dogus Dev</small>
+            <small>&copy; 2025 PRODUCTOUNO</small>
         </div>
     </aside>
 
