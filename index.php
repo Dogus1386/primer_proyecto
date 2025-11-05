@@ -1,4 +1,6 @@
 <?php
-// Punto de entrada. Incluye la vista principal.
-include "vistas/index.php";
+// Redirige automáticamente a vistas/index.php
+header("Location: vistas/index.php");
+exit;
 ?>
+
