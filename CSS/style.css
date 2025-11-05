@@ -1,0 +1,197 @@
+:root {
+    --bg: #0f172a;          /* Slate-900 */
+    --surface: #111827;     /* Gray-900 */
+    --surface-2: #1f2937;   /* Gray-800 */
+    --text: #e5e7eb;        /* Gray-200 */
+    --muted: #9ca3af;       /* Gray-400 */
+    --primary: #22c55e;     /* Green-500 */
+    --primary-dark: #16a34a;/* Green-600 */
+    --accent: #60a5fa;      /* Blue-400 */
+    --danger: #ef4444;      /* Red-500 */
+    --shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* Layout principal */
+.page {
+    margin-left: 280px; /* espacio para sidebar */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 280px;
+    height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid #1b2333;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+}
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-bottom: 1px solid #1b2333;
+}
+.logo { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; }
+.sidebar-header h2 { margin: 0; font-size: 18px; color: var(--text); }
+
+.sidebar-nav { padding: 12px; flex: 1; overflow-y: auto; }
+.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav a {
+    display: block;
+    padding: 12px 10px;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    transition: background .2s, color .2s;
+}
+.sidebar-nav a:hover { background: var(--surface-2); }
+.sidebar-nav a.active { background: rgba(96,165,250,.15); color: #cfe1ff; }
+
+.sidebar-footer {
+    padding: 12px;
+    border-top: 1px solid #1b2333;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Topbar */
+.topbar {
+    position: sticky; top: 0;
+    background: linear-gradient(90deg, #0f172a, #0b1320);
+    border-bottom: 1px solid #1b2333;
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 16px; z-index: 40;
+}
+.topbar h1 { font-size: 18px; margin: 0; color: var(--text); }
+.search-box {
+    margin-left: auto; display: flex; gap: 8px;
+}
+.search-box input {
+    background: var(--surface-2);
+    border: 1px solid #22304a;
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 8px;
+    width: 280px;
+}
+.search-box button {
+    background: var(--primary);
+    color: #05270f;
+    border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer;
+}
+.search-box button:hover { background: var(--primary-dark); }
+
+.hamburger {
+    width: 40px; height: 40px; background: var(--surface-2);
+    border: 1px solid #22304a; border-radius: 8px; display: none;
+    align-items: center; justify-content: center; gap: 5px; cursor: pointer;
+}
+.hamburger span {
+    display: block; width: 18px; height: 2px; background: var(--text);
+}
+
+/* Carrusel */
+.hero-carousel { padding: 16px 20px; background: #0d1423; }
+.carousel { position: relative; overflow: hidden; border-radius: 12px; }
+.carousel-track { display: flex; transition: transform .4s ease; }
+.slide { position: relative; min-width: 100%; height: 300px; background: #111; }
+.slide img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
+.slide-caption {
+    position: absolute; left: 20px; bottom: 20px; padding: 12px 14px;
+    background: rgba(0,0,0,.4); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 10px;
+}
+.slide-caption h3 { margin: 0 0 4px; }
+.carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(15,23,42,.6); color: var(--text);
+    border: 1px solid #22304a; width: 40px; height: 40px; border-radius: 50%;
+    cursor: pointer; z-index: 5;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+.carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; }
+.carousel-dots button {
+    width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer;
+    background: #718096;
+}
+.carousel-dots button.active { background: var(--accent); }
+
+/* Contenido */
+.content { padding: 20px; display: grid; gap: 20px; }
+
+/* Cards de cursos */
+.cards {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+}
+.card {
+    background: var(--surface);
+    border: 1px solid #1b2333;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+}
+.card-header {
+    height: 140px; background: #0b1220; display: flex; align-items: center; justify-content: center;
+}
+.card-header img { width: 100%; height: 100%; object-fit: cover; }
+.card-body { padding: 14px; display: grid; gap: 8px; }
+.card-title { font-size: 16px; margin: 0; }
+.card-meta { color: var(--muted); font-size: 13px; }
+.card-actions { display: flex; gap: 8px; }
+.btn {
+    padding: 8px 12px; border-radius: 8px; border: 1px solid #22304a; cursor: pointer;
+    background: var(--surface-2); color: var(--text);
+}
+.btn.primary { background: var(--primary); color: #05270f; border: none; }
+.btn.primary:hover { background: var(--primary-dark); }
+
+/* Acordeón */
+.accordion-section { padding: 10px 20px 30px; }
+.accordion-item {
+    border: 1px solid #1b2333; border-radius: 10px; overflow: hidden; margin-bottom: 10px;
+    background: var(--surface);
+}
+.accordion-header {
+    width: 100%; text-align: left; background: var(--surface-2); color: var(--text);
+    padding: 12px; border: none; cursor: pointer; font-weight: 600;
+}
+.accordion-body { padding: 12px; display: none; }
+
+/* Footer */
+.footer { padding: 20px; border-top: 1px solid #1b2333; color: var(--muted); }
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .cards { grid-template-columns: repeat(2, minmax(280px, 1fr)); }
+}
+@media (max-width: 1000px) {
+    .page { margin-left: 0; }
+    .sidebar { transform: translateX(-100%); transition: transform .25s ease; }
+    .sidebar.open { transform: translateX(0); }
+    .hamburger { display: inline-flex; }
+    .search-box input { width: 180px; }
+    .slide { height: 220px; }
+    .cards { grid-template-columns: 1fr; }
+}
