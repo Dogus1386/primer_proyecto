@@ -1,5 +1,7 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Academia PRODUCTOUNO: cursos gratis de programación y tecnología con contenido moderno y navegación interna.">
@@ -7,6 +9,7 @@
     <title>Academia PRODUCTOUNO</title>
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
+
 <body>
     <!-- Sidebar lateral -->
     <aside class="sidebar" id="sidebar">
@@ -30,7 +33,6 @@
 
     <!-- Contenedor principal -->
     <div class="page">
-        <!-- Topbar -->
         <header class="topbar">
             <button id="hamburger" class="hamburger" aria-label="Abrir menú">
                 <span></span><span></span><span></span>
@@ -40,6 +42,34 @@
                 <input type="text" id="globalSearch" placeholder="Buscar cursos, temas, palabras clave...">
                 <button id="searchBtn">Buscar</button>
             </div>
+            <div class="login-box">
+                <?php if (isset($_SESSION['usuario_nombre'])): ?>
+        <div class="user-info">
+            <span>👤 Bienvenido, <?php echo $_SESSION['usuario_nombre']; ?></span>
+            <a href="../logout.php" class="btn">Cerrar sesión</a>
+        </div>
+
+                <?php else: ?>
+                    <form id="loginForm">
+                        <input type="email" name="correo" placeholder="Correo electrónico" required>
+                        <input type="password" name="clave" placeholder="Contraseña" required>
+                        <button type="submit">Ingresar</button>
+                    </form>
+                    <p id="loginMessage"></p>
+                    <button id="showRegisterBtn" class="btn">Registrarse</button>
+
+                    <div class="register-box" id="registerBox" style="display: none;">
+                        <form id="registerForm">
+                            <input type="text" name="nombre" placeholder="Nombre completo" required>
+                            <input type="email" name="correo" placeholder="Correo electrónico" required>
+                            <input type="password" name="clave" placeholder="Contraseña" required>
+                            <button type="submit">Registrarse</button>
+                        </form>
+                        <p id="registerMessage"></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+
         </header>
 
         <!-- Carrusel -->
@@ -47,21 +77,21 @@
             <div class="carousel" id="carousel">
                 <div class="carousel-track">
                     <div class="slide">
-                        <img src="../img/hero1.jpg" alt="Hero 1">
+                        <img src="../img/hero1.png" alt="Hero 1">
                         <div class="slide-caption">
                             <h3>Aprende programación desde cero</h3>
                             <p>PHP, Python, C++, VB.NET, MySQL, CSS, XAMPP</p>
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="../img/hero2.jpg" alt="Hero 2">
+                        <img src="../img/hero2.png" alt="Hero 2">
                         <div class="slide-caption">
                             <h3>Cursos 100% gratuitos</h3>
                             <p>Contenido práctico, ejemplos y ejercicios guiados</p>
                         </div>
                     </div>
                     <div class="slide">
-                        <img src="../img/hero3.jpg" alt="Hero 3">
+                        <img src="../img/hero3.png" alt="Hero 3">
                         <div class="slide-caption">
                             <h3>Navegación moderna y rápida</h3>
                             <p>SPA sencilla, contenido cargado sin salir de la página</p>
@@ -130,4 +160,5 @@
 
     <script src="../script/app.js"></script>
 </body>
+
 </html>
