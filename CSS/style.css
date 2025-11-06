@@ -22,24 +22,55 @@ body {
 
 /* Layout principal */
 .page {
-    margin-left: 280px; /* espacio para sidebar */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  margin-left: 280px; /* mismo ancho que el sidebar */
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+.register-box {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register-box input {
+  background: var(--surface-2);
+  border: 1px solid #22304a;
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.register-box button {
+  background: var(--accent);
+  color: #0f172a;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.register-box button:hover {
+  background: #3b82f6;
+}
+
+#registerMessage {
+  color: var(--danger);
+  font-size: 14px;
+}
+
 
 /* Sidebar */
 .sidebar {
-    position: fixed;
-    top: 0; left: 0;
-    width: 280px;
-    height: 100vh;
-    background: var(--surface);
-    border-right: 1px solid #1b2333;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background: var(--surface);
+  z-index: 50;
 }
 .sidebar-header {
     display: flex;
@@ -84,6 +115,25 @@ body {
 .search-box {
     margin-left: auto; display: flex; gap: 8px;
 }
+
+.user-info {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+}
+.user-info .btn {
+    background: var(--accent);
+    color: #0f172a;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.user-info .btn:hover {
+    background: #3b82f6;
+}
+
 .search-box input {
     background: var(--surface-2);
     border: 1px solid #22304a;
@@ -107,6 +157,10 @@ body {
 .hamburger span {
     display: block; width: 18px; height: 2px; background: var(--text);
 }
+
+
+
+
 
 /* Carrusel */
 .hero-carousel { padding: 16px 20px; background: #0d1423; }
@@ -155,7 +209,7 @@ body {
 .card-header {
     height: 140px; background: #0b1220; display: flex; align-items: center; justify-content: center;
 }
-.card-header img { width: 100%; height: 100%; object-fit: cover; }
+.card-header img { width: auto; height: auto; object-fit: cover; } /* Tamaño de la imagen dentro de la card */ 
 .card-body { padding: 14px; display: grid; gap: 8px; }
 .card-title { font-size: 16px; margin: 0; }
 .card-meta { color: var(--muted); font-size: 13px; }
